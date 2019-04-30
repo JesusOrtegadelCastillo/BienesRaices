@@ -1,0 +1,439 @@
+/**
+Cuando vas a darle estilo a un id se utiliza el simbolo # y despues
+el nombre del id. Ejemplo #site-header y solo puede existir un id con el
+mismo nombre.
+
+Y cuando vas a darle estilos a una class se utiliza el simbolo . (punto)
+y despues el nombre de la clase. Ejemplo .site-header y en las clases a 
+diferencia de los id si puede reutilizar en otros elementos.
+
+Una clase puede tener multiples clases dentro separando los nombres por un 
+espacio. Ejemplo: class="site-header inicio". Cuando colocas un nombre seguido
+de un guion (-) se considera como 1 solo nombre mientras que si lo separas por
+un espacio lo tomara como una clase diferente. Y cuando las quieres utilizar 
+para asignarles el css y tendran los mismos valores se llamaran por ejemplo:
+.site-header.inicio, de esta forma estaras utilizando las 2 clases y sera mas 
+facil asignarles los mismos atributos o valores.
+------------------------------------------------------------------------------
+ **/
+
+ /** 1 rem es igual a 10px**/
+
+html{
+	font-size: 62.5%; /** Reset para REM - 62.5% = 10px de 16px**/
+}
+
+ body{
+ 	font-family: 'Lato', sans-serif;
+ 	font-size: 1.6rem;
+ 	line-height: 1.5;
+ 	
+ }
+
+/**Globales**/
+.contenedor{
+	max-width: 120rem; /** es igual a 1200 px **/
+	margin: 0 auto;/**margin toma 4 valores empezando de arriba, derecha, abajo
+	e izquierda, cuando son 2 valores iguales como 0 auto 0 auto puedes borrar los ultimos 
+	dos valores y los toma de los 2 primeros como en este caso**/
+}
+
+h1{ font-size: 3.8rem;}
+h2{font-size: 3.4rem}
+h3{font-size: 3rem;}
+h4{font-size: 2.6rem}
+
+img{
+	max-width: 100%;
+}
+
+
+/** Utilidades **/
+
+.seccion{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.d-block{
+	display: block!important;	
+}
+
+.fw-300{
+	font-weight: 300;
+}
+
+.centrar-texto{
+	text-align: center;
+}
+
+.contenido-centrado{
+	max-width: 800px;
+}
+
+
+/* Botones */
+.boton{
+ color: white;
+ font-weight: 700;
+ text-decoration: none;
+ font-size: 1.8rem;
+ padding: 1rem 3rem;
+ margin-top: 3rem;
+ display: inline-block;	
+ text-align: center;
+ border:none;
+ 
+}
+
+.boton:hover{
+	cursor: pointer;
+}
+
+.boton-amarillo{
+	background-color: #E08709;
+}
+.boton-verde{
+	background-color: #71B100;
+}
+
+ /**Header**/
+
+.site-header {
+	background-color: #333333;
+	padding: 1rem 0 3rem 0;
+}
+
+
+.site-header.inicio {
+	/**En este caso estamos trabajando en un archivo que esta dentro de
+	una carpeta (css) para poder tomar una imagen de otra carpeta (img)
+	se debe salir primero del directorio, para eso se utilizan los dos 
+	puntos "../" como en el codigo de abajo.**/
+
+	background-image: url(../img/header.jpg);
+	background-position: center;
+	background-size: cover; /**Toma todo el espacio disponible cuidando proporciones de la imagen**/
+	height: 100vh; /**vh= viewport height abarca el 100% de la pantalla**/
+	min-height: 60rem; /**Si un usuario tiene una pantalla muy pequena le
+	asigna un valor minimo para que no se desacomode el texto y la imagen**/
+}
+.contenido-header {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content:space-between;
+}
+.contenido-header h1{
+	color: white;
+	padding-bottom: 2rem;
+	max-width: 70rem;
+	line-height: 1.5;
+	
+}
+.barra {
+	display: flex;
+	justify-content: space-between; /**start = default, center, space-around, evenly, flex-end**/
+	align-items: center; /** alinea elementos verticalmente si pones flex-end hacia abajo y flex-start hacia arriba**/
+	padding-top: 2rem;
+
+}
+
+/** Navegacion **/
+.navegacion a{
+	color: rgba(255,255,255,.7);/** reed, green, blue, alpha chanel (transparencia) **/
+	text-decoration: none;
+	font-size: 1.8rem; /** es igual a 18px **/
+	margin-right: 2rem;
+}
+
+.navegacion a:hover{ /** Hover cambia de color los elementos cuando pasas el mouse por encima**/
+	color:#71B100;
+}
+
+.navegacion a:last-of-type{ /** last-of-type selecciona el ultimo elemento, en este caso se selecciona
+ el ultimo para no aplicarle los margenes, si se desea seleccionar el primero es first-of-type **/
+	margin: 0;
+}
+
+/** Iconos nosotros**/
+.iconos-nosotros{
+	display: flex;
+	justify-content: space-between;
+
+}
+.icono{
+	flex-basis: calc(33.3% - 1rem);
+	text-align: center;
+}
+.icono h3{
+	text-transform: uppercase;
+}
+.encabezado-nosotros{
+	font-weight: 300;
+	text-align: center;
+}
+.encabezado-casas{
+	font-weight: 300;
+	text-align: center;
+}
+
+/** Anuncios **/
+.contenedor-anuncios{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.anuncio{
+	flex: 0 0 calc(33.3% - 1rem); /* flex = incluye flex-grow, flex-shrink y flex-basis, por eso toma los 3 valores en este orden*/
+	/*Flex-grow: 1; Si hay espacio disponible el objeto va a crecer, el valor 0 impide que crezca*/
+	/* flex-shrink:  Encoje los objetos pero si le pones 0 siempre toma el valor de flex-basis calc*/
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px; 
+	background-color: #F5F5F5;
+	margin-bottom: 2rem;
+}
+.contenido-anuncio{
+	padding: 2rem;
+}
+
+.contenido-anuncio h3, .contenido-anuncio p{
+	margin:0;
+}
+
+.precio{
+	color: 	#71B100;
+	font-weight: 700;
+}
+.iconos-caracteristicas{
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-evenly;
+	flex: 1; /* Cuando se encojen los iconos, les regresa su tama;o */
+	max-width: 500px;
+}
+.iconos-caracteristicas li{
+	/*flex: 1;*/
+	display: flex;
+}
+.iconos-caracteristicas li img{
+	margin-right: 2rem;
+}
+
+.ver-todas{
+	display: flex;	
+	justify-content: flex-end;
+}
+
+/* contacto home */
+
+.imagen-contacto{
+	background-image: url(../img/encuentra.jpg);
+	background-position: center center;
+	background-size: cover;
+	height: 40rem;
+	display: flex;
+	align-items: center;
+}
+.contenido-contacto{
+	flex: 1;
+	color: white;
+}
+.contenido-contacto p{
+	font-size: 1.8rem;
+}
+
+/* seccion inferior */
+
+.seccion-inferior{
+	display: flex;
+	justify-content: space-between;
+}
+.seccion-inferior .blog{
+	flex-basis: 60%;
+}
+
+.seccion-inferior .testimoniales{
+flex-basis: calc(40% - 2rem);
+}
+
+.entrada-blog{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.entrada-blog:last-of-type {
+	margin-bottom: 0;
+}
+
+.entrada-blog .imagen{
+flex-basis: 40%;
+}
+
+.entrada-blog .texto-entrada{
+flex-basis: calc(60% - 3rem);
+}
+
+.texto-entrada a{
+	 color: #000000;
+	 text-decoration: none;
+}
+
+.texto-entrada h4{
+margin:0;
+line-height: 1.4;
+}
+.texto-entrada h4::after{ /*pseudoelemento despues del h4*/
+ content: '';
+ display: block;
+ width: 15rem;
+ height: .5rem;
+ background-color: #71B100;
+ margin-top: 1rem;
+}
+
+.texto-entrada span{
+	color: #E08709;
+}
+
+.htest{
+	font-weight: 300;
+	text-align: center;
+	display: block;
+	margin-top: 50px;
+}
+
+.texto-entrada p{
+	text-align: justify;
+}
+
+/* testimoniales */
+
+.testimonial{
+	background-color: #71B100;
+	font-size: 2.4rem;
+	padding: 2rem;
+	color: #FFFFFF;
+	/*border-top-right-radius: 2rem; redondea las esquinas
+	border-top-left-radius: 2rem;*/
+	border-radius: 2rem;
+}
+
+.testimonial p{
+	text-align: right;
+}
+.testimonial blockquote::before{
+	content: '';
+	background-image: url(../img/comilla.svg);
+	width: 5rem;
+	height: 5rem;
+	position: absolute;
+	left: -2rem;
+}
+.testimonial blockquote{
+	position: relative;
+	padding-left: 5rem;
+	font-weight: 300;
+}
+
+/* footer */
+
+.site-footer{
+	background-color: #333333;
+	margin: 0;
+}
+
+.contenedor-footer{
+padding: 1rem 0;	
+display: flex;
+justify-content: space-between;
+}
+
+.copyright{
+	margin: 0;
+	color: #FFFFFF;
+}
+
+/* INTERNAS */
+
+/** CSS de Nosotros**/
+.contenido-nosotros {
+	display: grid;/*Divide la pantalla en columnas*/
+	grid-template-columns: repeat(2,1fr); /*fr = fraccio es equivalente a 50% y 50%n*/
+	grid-column-gap: 2rem; /* Agrega la separacion entre las 2 columnas */
+}
+
+.texto-nosotros blockquote {
+	font-weight: 900;
+	font-size: 2rem;
+	margin: 0;
+	padding: 1rem 0 3rem 0;
+}
+
+/** CSS De Anuncio **/
+.resumen-propiedad{
+	display: flex;
+	justify-content: space-between; /*Alinea horizontalmente*/
+	align-items: center; /* Alinea Verticalmente*/
+}
+
+/** CSS DE CONTACTO**/
+
+.contacto p{
+	font-size: 1.4rem;
+	color: #4f4f4f;
+	margin: 2rem 0 0 0;
+}
+
+legend{
+	font-size: 2rem;
+	color: #333333;
+}
+
+label {
+	font-weight: 700;
+	text-transform: uppercase;
+	display: block;
+}
+
+input:not([type="submit"]), /*Permite excluir uno o varios campos*/
+textarea,select
+{
+	padding: 1rem;
+	display: block;
+	width: 97%;
+	background-color: #e1e1e1;
+	margin-bottom: 2rem;
+	border:none;
+	border-radius: 0.5rem;
+}
+
+input[type="radio"]{
+	width: auto;
+	margin:0;
+}
+
+select {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+textarea{
+	height: 15rem;
+}
+
+/** 
+Para seleccionar varios selecctores en especifico:
+
+input[type="text"] , input[type="email"]
+**/
+
+.forma-contacto{
+	max-width: 30rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
